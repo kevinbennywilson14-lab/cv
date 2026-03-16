@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nama Anda – CV Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#f0f4ff;--surface:#fff;--navy:#0a1628;
+      --blue:#1a56db;--blue2:#3b82f6;--cyan:#06b6d4;
+      --border:rgba(26,86,219,.12);--text:#0f172a;--muted:#64748b;
+      --grad:linear-gradient(135deg,#1a56db 0%,#06b6d4 100%);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:66px;padding:0 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);box-shadow:0 1px 20px rgba(26,86,219,.06)}
+    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--blue);display:flex;align-items:center;gap:.5rem}
+    .nav-logo .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{background:var(--grad);color:#fff!important;padding:.4rem 1.1rem;border-radius:4px}
+
+    /* ── CONTAINERS ── */
+    .container{max-width:1120px;margin:0 auto;padding:0 2.5rem}
+    section{padding:6rem 0}
+    .section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:.5rem}
+    .section-label::before{content:'';width:18px;height:2px;background:var(--grad);border-radius:1px}
+    .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;line-height:1.1;color:var(--navy);margin-bottom:3rem}
+    .accent{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+    /* ── HERO ── */
+    #hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding-top:66px;position:relative;overflow:hidden}
+    .hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+    .orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(26,86,219,.38) 0%,transparent 70%);top:-220px;right:-180px}
+    .orb2{width:380px;height:380px;background:radial-gradient(circle,rgba(6,182,212,.22) 0%,transparent 70%);bottom:-120px;left:-80px}
+    .orb3{width:160px;height:160px;border:1px solid rgba(255,255,255,.05);top:38%;left:54%;transform:translate(-50%,-50%)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:5rem;align-items:center;width:100%}
+    .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.32rem .95rem;border-radius:999px;border:1px solid rgba(6,182,212,.4);background:rgba(6,182,212,.08);color:#67e8f9;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.4rem}
+    .pulse-dot{width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+    .hero-name{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;line-height:1.0;color:#fff;letter-spacing:-.03em}
+    .hero-name .gline{display:block;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{color:#94a3b8;font-size:1.05rem;margin:1rem 0 2rem}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:2.4rem}
+    .pill{display:flex;align-items:center;gap:.4rem;padding:.32rem .85rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:#cbd5e1;font-size:.78rem}
+    .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+    .btn{padding:.72rem 1.7rem;border-radius:5px;font-size:.84rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:all .25s;cursor:pointer;border:none;font-family:'IBM Plex Sans',sans-serif}
+    .btn-primary{background:var(--grad);color:#fff;box-shadow:0 4px 20px rgba(26,86,219,.35)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,86,219,.5)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.2);color:#fff;background:transparent}
+    .btn-ghost:hover{background:rgba(255,255,255,.08)}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)}
+    .hs-num{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hs-lbl{font-size:.68rem;color:#64748b;letter-spacing:.1em;text-transform:uppercase}
+
+    /* PHOTO */
+    .photo-wrap{flex-shrink:0;position:relative}
+    .rings{position:relative;width:290px;height:290px}
+    .rings::before,.rings::after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(26,86,219,.35)}
+    .rings::before{inset:-16px;animation:spin 14s linear infinite}
+    .rings::after{inset:-32px;border-color:rgba(6,182,212,.2);animation:spin 22s linear infinite reverse}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .photo-frame{width:290px;height:290px;border-radius:50%;overflow:hidden;border:3px solid rgba(26,86,219,.45);background:linear-gradient(135deg,#1e3a8a,#1e40af);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+    .photo-frame img{width:100%;height:100%;object-fit:cover;display:none}
+    .no-photo{display:flex;flex-direction:column;align-items:center;gap:.4rem}
+    .initials{font-family:'Syne',sans-serif;font-size:4.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+    .role-sm{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#67e8f9}
+    .pbadge{position:absolute;bottom:8px;right:8px;z-index:2;background:var(--grad);border-radius:999px;padding:.3rem .75rem;font-size:.68rem;color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(26,86,219,.5)}
+
+    /* ── ABOUT ── */
+    #tentang{background:#fff}
+    .about-grid{display:grid;grid-template-columns:3fr 2fr;gap:5rem;align-items:center}
+    .about-text p{color:#475569;line-height:1.9;margin-bottom:1.1rem}
+    .hcards{display:flex;flex-direction:column;gap:1rem}
+    .hcard{padding:1.3rem 1.5rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;border-left:3px solid var(--blue);transition:all .25s}
+    .hcard:hover{border-left-color:var(--cyan);transform:translateX(5px)}
+    .hcard-icon{font-size:1.4rem;margin-bottom:.35rem}
+    .hcard h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:.2rem}
+    .hcard p{font-size:.8rem;color:var(--muted);margin:0}
+
+    /* ── SKILLS ── */
+    #keahlian{background:var(--bg)}
+    .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .skill-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.8rem;transition:box-shadow .25s}
+    .skill-box:hover{box-shadow:0 8px 24px rgba(26,86,219,.1)}
+    .skill-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem}
+    .skill-nm{font-weight:500;font-size:.88rem;color:var(--navy)}
+    .skill-pc{font-size:.72rem;font-weight:600;color:#fff;background:var(--grad);padding:.13rem .5rem;border-radius:999px}
+    .skill-bar{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+    .skill-fill{height:100%;border-radius:3px;background:var(--grad);width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+    .skill-fill.on{width:var(--w)}
+
+    /* ── EXPERIENCE ── */
+    #pengalaman{background:#fff}
+    .timeline{position:relative;padding-left:2rem}
+    .timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--blue),var(--cyan));border-radius:1px}
+    .tl-item{position:relative;margin-bottom:2.4rem}
+    .tl-item:last-child{margin-bottom:0}
+    .tl-dot{position:absolute;left:-2.7rem;top:.85rem;width:13px;height:13px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 0 0 3px rgba(26,86,219,.25)}
+    .tl-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:1.7rem 2rem;transition:all .25s}
+    .tl-card:hover{border-color:rgba(26,86,219,.3);box-shadow:0 8px 24px rgba(26,86,219,.08);transform:translateX(4px)}
+    .tl-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.25rem}
+    .tl-pos{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--navy)}
+    .tl-per{font-size:.72rem;padding:.18rem .65rem;background:rgba(26,86,219,.07);border:1px solid var(--border);border-radius:999px;color:var(--blue);font-weight:500}
+    .tl-co{color:var(--blue2);font-size:.83rem;margin-bottom:.65rem}
+    .tl-card p{color:#475569;font-size:.86rem;line-height:1.75}
+
+    /* ── EDUCATION ── */
+    #pendidikan{background:var(--navy);position:relative;overflow:hidden}
+    .edu-orb1{width:500px;height:500px;background:radial-gradient(circle,rgba(26,86,219,.22) 0%,transparent 70%);top:-160px;right:-160px}
+    .edu-orb2{width:280px;height:280px;background:radial-gradient(circle,rgba(6,182,212,.14) 0%,transparent 70%);bottom:-80px;left:-70px}
+    #pendidikan .section-label{color:#67e8f9}
+    #pendidikan .section-title{color:#fff}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;position:relative;z-index:1}
+    .edu-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem;transition:all .3s}
+    .edu-card:hover{background:rgba(255,255,255,.08);border-color:rgba(26,86,219,.5);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.2)}
+    .edu-ico{width:46px;height:46px;border-radius:10px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:1.1rem}
+    .edu-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:.25rem}
+    .edu-inst{color:#67e8f9;font-size:.8rem;margin-bottom:.2rem}
+    .edu-per{display:inline-block;font-size:.7rem;background:rgba(26,86,219,.3);border:1px solid rgba(26,86,219,.4);color:#93c5fd;padding:.12rem .55rem;border-radius:999px;margin-bottom:.85rem}
+    .edu-card p{color:#94a3b8;font-size:.82rem;line-height:1.7}
+
+    /* ── PORTFOLIO ── */
+    #portofolio{background:var(--bg)}
+    .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+    .proj-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+    .proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+    .proj-card:hover{box-shadow:0 16px 40px rgba(26,86,219,.12);transform:translateY(-5px)}
+    .proj-card:hover::after{transform:scaleX(1)}
+    .proj-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+    .proj-ebox{width:50px;height:50px;border-radius:11px;background:linear-gradient(135deg,rgba(26,86,219,.1),rgba(6,182,212,.1));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .proj-cat{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--grad);padding:.18rem .65rem;border-radius:999px}
+    .proj-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--navy);margin-bottom:.45rem}
+    .proj-card p{color:#475569;font-size:.83rem;margin-bottom:1.2rem;line-height:1.7}
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .tag{padding:.2rem .65rem;border-radius:4px;background:rgba(26,86,219,.06);border:1px solid rgba(26,86,219,.12);font-size:.68rem;color:var(--blue);font-weight:500}
+
+    /* ── CONTACT ── */
+    #kontak{background:#fff}
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+    .clist{display:flex;flex-direction:column;gap:.95rem}
+    .citem{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.4rem;background:var(--bg);border:1px solid var(--border);border-radius:8px;transition:all .25s}
+    .citem:hover{border-color:rgba(26,86,219,.3);box-shadow:0 4px 12px rgba(26,86,219,.08);transform:translateX(4px)}
+    .cico{width:38px;height:38px;border-radius:7px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+    .clbl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+    .cval{font-size:.88rem;color:var(--navy)}
+    .cpanel{background:var(--navy);border-radius:14px;padding:2.8rem;position:relative;overflow:hidden}
+    .cpanel::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(26,86,219,.4) 0%,transparent 70%);top:-100px;right:-100px}
+    .cpanel h3{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:#fff;margin-bottom:.9rem;position:relative;z-index:1}
+    .cpanel p{color:#94a3b8;margin-bottom:1.8rem;font-size:.9rem;position:relative;z-index:1}
+    .cpanel .btn-primary{position:relative;z-index:1}
+    .avail{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;color:#67e8f9;letter-spacing:.08em;margin-top:1.3rem;position:relative;z-index:1}
+    .adot{width:6px;height:6px;border-radius:50%;background:#06b6d4;animation:pulse 2s infinite}
+
+    /* FOOTER */
+    footer{background:var(--navy);padding:1.6rem 0;text-align:center;font-size:.78rem;color:#475569;border-top:1px solid rgba(255,255,255,.06)}
+    footer .ga{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+    /* ANIMATIONS */
+    .fade{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+    .fade.show{opacity:1;transform:translateY(0)}
+
+    @media(max-width:820px){
+      nav{padding:0 1.3rem}.nav-links{display:none}
+      .hero-grid,.about-grid,.skill-grid,.edu-grid,.proj-grid,.contact-layout{grid-template-columns:1fr}
+      .photo-wrap{display:none}.hero-stats{gap:1.3rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><div class="dot"></div>Nama Anda</div>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#keahlian">Keahlian</a></li>
+    <li><a href="#pengalaman">Pengalaman</a></li>
+    <li><a href="#pendidikan">Pendidikan</a></li>
+    <li><a href="#portofolio">Portofolio</a></li>
+    <li><a href="#kontak" class="nav-cta">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><span class="pulse-dot"></span>Available for Work</div>
+        <h1 class="hero-name">
+          Nama
+          <span class="gline">Anda</span>
+        </h1>
+        <p class="hero-sub">Software Developer &amp; UI Designer</p>
+        <div class="hero-pills">
+          <div class="pill">📍 Gorontalo, Indonesia</div>
+          <div class="pill">✉ email@anda.com</div>
+          <div class="pill">📱 +62 812 3456 7890</div>
+        </div>
+        <div class="hero-btns">
+          <a href="#kontak" class="btn btn-primary">Hubungi Saya</a>
+          <a href="#portofolio" class="btn btn-ghost">Lihat Portofolio →</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="hs-num">5+</div><div class="hs-lbl">Tahun Exp</div></div>
+          <div><div class="hs-num">20+</div><div class="hs-lbl">Proyek</div></div>
+          <div><div class="hs-num">10+</div><div class="hs-lbl">Klien</div></div>
+          <div><div class="hs-num">3</div><div class="hs-lbl">Sertifikasi</div></div>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <div class="rings">
+          <div class="photo-frame">
+            <!-- Ganti src foto Anda dan hapus class no-photo jika ingin tampilkan foto -->
+            <!-- <img src="foto.jpg" alt="Foto Profil"> -->
+            <div class="no-photo">
+              <span class="initials">NA</span>
+              <span class="role-sm">Software Developer</span>
+            </div>
+          </div>
+          <div class="pbadge">✦ Pro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade">
+        <p class="section-label">Tentang Saya</p>
+        <h2 class="section-title">Kenali Saya <span class="accent">Lebih Dekat</span></h2>
+        <p>Seorang profesional yang bersemangat di bidang teknologi dengan pengalaman lebih dari 5 tahun dalam pengembangan perangkat lunak. Saya berkomitmen untuk menciptakan solusi digital yang inovatif, efisien, dan berdampak nyata bagi pengguna.</p>
+        <p>Bagi saya, kode yang baik bukan hanya yang berjalan benar — tapi yang mudah dipahami, dirawat, dan membawa nilai nyata. Saya percaya pada kolaborasi, komunikasi, dan keingintahuan yang tak pernah berhenti.</p>
+      </div>
+      <div class="hcards fade">
+        <div class="hcard"><div class="hcard-icon">💡</div><h4>Problem Solver</h4><p>Menyukai tantangan teknis dan menemukan solusi elegan.</p></div>
+        <div class="hcard"><div class="hcard-icon">🤝</div><h4>Team Player</h4><p>Berpengalaman berkolaborasi lintas divisi dan budaya kerja.</p></div>
+        <div class="hcard"><div class="hcard-icon">📈</div><h4>Continuous Learner</h4><p>Selalu mengikuti perkembangan teknologi dan best practices terbaru.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section id="keahlian">
+  <div class="container">
+    <p class="section-label fade">Kompetensi Teknis</p>
+    <h2 class="section-title fade">Keahlian <span class="accent">Saya</span></h2>
+    <div class="skill-grid" id="skillGrid">
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">Python</span><span class="skill-pc">90%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div></div>
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">JavaScript / React</span><span class="skill-pc">85%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">UI/UX Design</span><span class="skill-pc">80%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></div>
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">SQL &amp; Database</span><span class="skill-pc">75%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div></div>
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">Docker &amp; DevOps</span><span class="skill-pc">70%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div></div>
+      <div class="skill-box fade"><div class="skill-hdr"><span class="skill-nm">Machine Learning</span><span class="skill-pc">65%</span></div><div class="skill-bar"><div class="skill-fill" style="--w:65%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <div class="container">
+    <p class="section-label fade">Riwayat Karir</p>
+    <h2 class="section-title fade">Pengalaman <span class="accent">Kerja</span></h2>
+    <div class="timeline">
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-top"><span class="tl-pos">Senior Software Developer</span><span class="tl-per">2022 – Sekarang</span></div>
+          <div class="tl-co">PT. Teknologi Maju Indonesia</div>
+          <p>Memimpin tim pengembangan aplikasi web skala enterprise menggunakan Python dan React. Meningkatkan performa sistem sebesar 40% melalui optimasi arsitektur microservices.</p>
+        </div>
+      </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-top"><span class="tl-pos">Full Stack Developer</span><span class="tl-per">2020 – 2022</span></div>
+          <div class="tl-co">Startup Digital Nusantara</div>
+          <p>Membangun platform e-commerce dari nol hingga melayani 50.000+ pengguna aktif. Mengintegrasikan payment gateway dan sistem notifikasi real-time.</p>
+        </div>
+      </div>
+      <div class="tl-item fade">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-top"><span class="tl-pos">Junior Web Developer</span><span class="tl-per">2018 – 2020</span></div>
+          <div class="tl-co">CV. Solusi Digital</div>
+          <p>Mengembangkan dan memelihara website klien menggunakan HTML, CSS, JavaScript, dan PHP. Berkolaborasi dengan tim desainer untuk menghasilkan tampilan responsif.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENDIDIKAN -->
+<section id="pendidikan">
+  <div class="hero-orb edu-orb1"></div>
+  <div class="hero-orb edu-orb2"></div>
+  <div class="container">
+    <p class="section-label fade">Latar Belakang</p>
+    <h2 class="section-title fade">Riwayat <span class="accent">Pendidikan</span></h2>
+    <div class="edu-grid">
+      <div class="edu-card fade">
+        <div class="edu-ico">🎓</div>
+        <h3>S1 Teknik Informatika</h3>
+        <div class="edu-inst">Universitas Negeri Gorontalo</div>
+        <span class="edu-per">2014 – 2018</span>
+        <p>Lulus dengan predikat Cum Laude. Skripsi tentang sistem rekomendasi berbasis machine learning.</p>
+      </div>
+      <div class="edu-card fade">
+        <div class="edu-ico">🏫</div>
+        <h3>SMA IPA</h3>
+        <div class="edu-inst">SMA Negeri 1 Gorontalo</div>
+        <span class="edu-per">2011 – 2014</span>
+        <p>Aktif dalam ekstrakurikuler olimpiade komputer dan memenangkan juara 2 tingkat provinsi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section id="portofolio">
+  <div class="container">
+    <p class="section-label fade">Karya Saya</p>
+    <h2 class="section-title fade">Proyek <span class="accent">Unggulan</span></h2>
+    <div class="proj-grid">
+      <div class="proj-card fade">
+        <div class="proj-hdr"><div class="proj-ebox">💰</div><span class="proj-cat">Mobile &amp; Web</span></div>
+        <h3>SiKelola App</h3>
+        <p>Aplikasi manajemen keuangan pribadi berbasis React Native dengan fitur AI budgeting.</p>
+        <div class="tags"><span class="tag">React Native</span><span class="tag">Python</span><span class="tag">TensorFlow</span></div>
+      </div>
+      <div class="proj-card fade">
+        <div class="proj-hdr"><div class="proj-ebox">📚</div><span class="proj-cat">Web App</span></div>
+        <h3>EduNusa Platform</h3>
+        <p>Platform e-learning untuk pelajar Indonesia dengan fitur video interaktif dan quiz adaptif.</p>
+        <div class="tags"><span class="tag">Django</span><span class="tag">Vue.js</span><span class="tag">PostgreSQL</span></div>
+      </div>
+      <div class="proj-card fade">
+        <div class="proj-hdr"><div class="proj-ebox">🏙️</div><span class="proj-cat">Data Visualization</span></div>
+        <h3>SmartKota Dashboard</h3>
+        <p>Dashboard monitoring smart city untuk Pemerintah Daerah dengan data real-time IoT.</p>
+        <div class="tags"><span class="tag">Flask</span><span class="tag">D3.js</span><span class="tag">MQTT</span></div>
+      </div>
+      <div class="proj-card fade">
+        <div class="proj-hdr"><div class="proj-ebox">🌾</div><span class="proj-cat">AI / ML</span></div>
+        <h3>TaniPintar</h3>
+        <p>Aplikasi deteksi penyakit tanaman menggunakan computer vision untuk petani lokal.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">FastAPI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="container">
+    <p class="section-label fade">Kontak</p>
+    <h2 class="section-title fade">Mari <span class="accent">Terhubung</span></h2>
+    <div class="contact-layout">
+      <div class="clist fade">
+        <div class="citem"><div class="cico">📧</div><div><div class="clbl">Email</div><div class="cval">email@anda.com</div></div></div>
+        <div class="citem"><div class="cico">📱</div><div><div class="clbl">Telepon / WhatsApp</div><div class="cval">+62 812 3456 7890</div></div></div>
+        <div class="citem"><div class="cico">💼</div><div><div class="clbl">LinkedIn</div><div class="cval">linkedin.com/in/namaanda</div></div></div>
+        <div class="citem"><div class="cico">🐙</div><div><div class="clbl">GitHub</div><div class="cval">github.com/namaanda</div></div></div>
+        <div class="citem"><div class="cico">📍</div><div><div class="clbl">Lokasi</div><div class="cval">Gorontalo, Indonesia</div></div></div>
+      </div>
+      <div class="cpanel fade">
+        <h3>Ada Proyek Menarik?</h3>
+        <p>Saya terbuka untuk peluang kolaborasi, full-time, maupun freelance. Jangan ragu untuk menghubungi saya!</p>
+        <a href="mailto:email@anda.com" class="btn btn-primary">✉ Kirim Pesan</a>
+        <div class="avail"><span class="adot"></span>Tersedia untuk proyek baru</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 <span class="ga">Nama Anda</span> · Dibuat dengan ❤ untuk GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('show'),i*65)});
+  },{threshold:.08});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+  // Skill bar
+  const so = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.skill-fill').forEach(f=>setTimeout(()=>f.classList.add('on'),180))});
+  },{threshold:.15});
+  const sg=document.getElementById('skillGrid');
+  if(sg)so.observe(sg);
+</script>
+</body>
+</html>
